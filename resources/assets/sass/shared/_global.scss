@@ -1,0 +1,132 @@
+ul.no-style {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-justify {
+    text-align: justify;
+}
+.text-color-light {
+    color: $color-light;
+}
+.text-color-dark {
+    color: $color-dark;
+}
+.text-small {
+	font-size: 0.85rem;
+}
+.text-tiny {
+	font-size: 0.7rem;
+}
+
+.z-depth-0 {
+    box-shadow: none !important
+}
+.z-depth-1 {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.z-depth-2 {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+}
+.z-depth-3 {
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.3);
+}
+.z-depth-4 {
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+}
+.z-depth-5 {
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+}
+
+.round-border {
+    border-radius: 50%;
+}
+
+img.fit, svg.fit {
+	width: 100%;
+	height: 100%;
+}
+
+.message-box {
+	display: block;
+    width: 100%;
+    margin: 1rem 0;
+    
+    font-size: 1.1rem;
+	background: #ffffff;
+	position: relative;
+	.message {
+		padding: 1rem 2rem;
+		display: block;
+	}
+	&:before {
+		display: block;
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 0.4rem;
+		
+	}
+	&:after {
+	    font-family: $headings-font-family;
+	    font-weight: 300;
+	    display: block;
+	    position: absolute;
+	    right: 1rem;
+	    top: 0;
+	    bottom: 0;
+	    padding: 0.3rem 0.7rem;
+	    margin: 0.8rem 0 0.8rem;
+	    text-transform: uppercase;
+	    font-size: 0.9rem;
+	    color: #ffffff;
+	    word-spacing: 2px;
+	    letter-spacing: 0.5px;
+		
+	}
+	&.success {
+		border: 1px solid $color-success;
+		
+	}
+	&.success:before {
+		background: $color-success;
+	}
+	&.success:after {
+		background: $color-success;
+		content: "Thành công";
+	}
+	&.info {
+		border: 1px solid $color-secondary;
+		
+	}
+	&.info:before {
+		background: $color-secondary;
+	}
+	&.info:after {
+		background: $color-secondary;
+		content: "Thông tin";
+	}
+	&.error {
+		border: 1px solid $color-danger;
+		
+	}
+	&.error:before {
+		background: $color-danger;
+	}
+	&.error:after {
+		background: $color-danger;
+		content: "Thất bại";
+	}
+}

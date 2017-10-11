@@ -6,4 +6,13 @@
 @import "variables";
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/type';
+
+// Components
+@import "./shared/global";
+@import "./shared/grid";
+
+// Page
+
+@import "./page/login";

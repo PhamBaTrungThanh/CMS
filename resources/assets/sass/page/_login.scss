@@ -1,0 +1,58 @@
+div.login-background {
+    background: #003973;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E5E5BE, #003973);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E5E5BE, #003973); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.facebook-login {
+	background: #4C69BA;
+	border-radius: 3px;
+	color: #ffffff;
+	margin: 40px 60px 0;
+	transition: background 0.2s ease;
+	span {
+		margin: 0 5px 0 0;
+	}
+	svg {
+		margin: 5px;
+	}
+}
+.facebook-login:hover {
+	background: darken(#4C69BA, 10%);
+	color: #ffffff;
+}
+
+.login-section {
+	transform: translateY(-20%);
+}
+.login-box {
+	background: #ffffff;
+	position: relative;
+	border-radius: 3px;
+}
+.login-title {
+	color: #ffffff;
+	margin: 0 0 6rem 0;
+	
+}
+.login-box--icon {
+	padding: 15px;
+	width: 8rem;
+	height: 8rem;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border: 1px solid $gray-300;
+    svg {
+        fill: $gray-700;
+    }
+}
+
+.login-box--inside {
+	padding-top: 3rem;
+}

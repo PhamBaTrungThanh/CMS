@@ -1,0 +1,109 @@
+.container {
+    min-width: 560px;
+    width: 80%;
+    max-width: 2160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: ($spacer / 2);
+    padding-left: ($spacer / 2);
+}
+
+.container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: ($spacer / 2);
+    padding-left: ($spacer / 2);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($spacer / -2);
+    margin-left:  ($spacer / -2);
+}
+.row.vertical-aligns {
+    align-items: center;
+}
+.row.horizontal-aligns {
+    justify-content: center;
+}
+.row > .col {
+    position: relative;
+    // Prevent columns from becoming too narrow when at smaller grid tiers by
+    // always setting `width: 100%;`. This works because we use `flex` values
+    // later on to override this initial width.
+    min-height: 1px; // Prevent collapsing
+    padding-right: ($spacer / 2);
+    padding-left:  ($spacer / 2);
+    flex: 1 1 0;
+    //width: auto;
+    //max-width: none;
+
+}
+.align-center {
+	align-items: center;
+}
+.justify-center {
+	justify-content: center;
+}
+.row > .col {
+    &.fixed {
+        flex: 0 0 auto;
+    }
+    &.align-flex-end {
+        align-self: flex-end;
+    }
+}
+
+.full-width {
+	width: 100%;
+}
+.full-height {
+	height: 100%;
+}
+
+.box {
+	padding: $spacer;
+}
+.flex {
+	display: flex;
+}
+.wrapper.viewport {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+div.container.isolate::before, div.container.isolate::after {
+	width: 100%;
+	height: 3rem;
+	display: block;
+	content: "";
+	
+}
+
+@media screen and (orientation:portrait) {
+	.container {
+		width: 100vw;
+		margin: 0;
+		min-width: unset;
+		max-width: unset;
+		padding: 0;
+	}
+    .stack-on-portrait {
+        width: 100% !important; 
+        flex: 0 0 100% !important;
+    }
+	div.container.isolate::before, div.container.isolate::after {
+		height: 1rem;
+	}
+	.hide-on-portrait {
+		display: none !important;
+	}
+}
+@media screen and (orientation:landscape) {
+	.hide-on-landscape {
+		display: none !important;
+	}
+}
