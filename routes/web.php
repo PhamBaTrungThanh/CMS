@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 
 Auth::routes();
-Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('login.facebook');
-Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');
-Route::get('/login/success', 'LoginController@success')->middleware('auth')->name('login.success');
-
+Route::namespace('Auth')->group(function() {
+    Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('login.facebook');
+    Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');
+    Route::get('/login/success', 'LoginController@success')->middleware('auth')->name('login.success');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('admin')->group( function() {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+});

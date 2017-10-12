@@ -1,0 +1,14 @@
+/**
+* global
+*/
+section[role=sidebar] {
+    float: left;
+    width: 250px;
+    min-height: 100vh;
+    background: $gray-800;
+}
+section[role=content] {
+    float: left;
+    width: calc(100% - 250px);
+    background: $gray-100;
+}
