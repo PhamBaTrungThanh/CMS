@@ -24,35 +24,36 @@ div.login-background {
 }
 
 .login-section {
-	transform: translateY(-20%);
+	transform: translateY(-10%);
 }
 .login-box {
 	background: #ffffff;
 	position: relative;
-	border-radius: 3px;
+	border-radius: 2px;
+	display: flex;
+	min-width: 60vw;
+	flex-wrap: wrap;
 }
 .login-title {
 	color: #ffffff;
-	margin: 0 0 6rem 0;
+	margin: 0 0 3rem 0;
 	
 }
-.login-box--icon {
-	padding: 15px;
-	width: 8rem;
-	height: 8rem;
-	border-radius: 50%;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffffff;
-    border: 1px solid $gray-300;
-    svg {
-        fill: $gray-700;
-    }
-}
+
 
 .login-box--inside {
-	padding-top: 3rem;
+	flex: 1 1 50%;
+	width: 50%;
+
+	.site-logo {
+		width: 30%;
+		display: block;
+		margin: 2rem auto;
+		stroke: $color-primary;
+		fill: $color-primary;
+		.cls-1,.cls-3 {
+			fill: $color-primary;
+			stroke: $color-primary;
+		}
+	}
 }

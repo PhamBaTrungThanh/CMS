@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
+Route::get('/login/{provider}', 'LoginController@redirectToProvider')->name('login.facebook');
+Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');
+Route::get('/login/success', 'LoginController@success')->middleware('auth')->name('login.success');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -16,3 +16,4 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
    mix.browserSync("cms.dev");
    mix.sourceMaps();
+   mix.version();

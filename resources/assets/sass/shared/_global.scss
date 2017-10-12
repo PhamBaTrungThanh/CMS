@@ -3,6 +3,9 @@ ul.no-style {
     margin: 0;
     padding: 0;
 }
+/**************************/
+/** TYPOGRAPHY ************/
+/**************************/
 
 .text-left {
     text-align: left;
@@ -16,12 +19,7 @@ ul.no-style {
 .text-justify {
     text-align: justify;
 }
-.text-color-light {
-    color: $color-light;
-}
-.text-color-dark {
-    color: $color-dark;
-}
+
 .text-small {
 	font-size: 0.85rem;
 }
@@ -29,6 +27,37 @@ ul.no-style {
 	font-size: 0.7rem;
 }
 
+.text-bold {
+	font-weight: bold;
+}
+.text-color-primary {
+	color: $color-primary;
+}
+.text-color-secondary {
+	color: $color-secondary;
+}
+.text-color-success {
+	color: $color-success;
+}
+.text-color-danger {
+	color: $color-danger;
+}
+.text-color-info {
+	color: $color-info;
+}
+.text-color-warning {
+	color: $color-warning;
+}
+
+.text-color-light {
+    color: $color-light;
+}
+.text-color-dark {
+    color: $color-dark;
+}
+/**************************/
+/** BOX SHADOW ************/
+/**************************/
 .z-depth-0 {
     box-shadow: none !important
 }
@@ -56,6 +85,71 @@ img.fit, svg.fit {
 	width: 100%;
 	height: 100%;
 }
+/******************************************************************/
+/** FORM **********************************************************/
+/******************************************************************/
+label[for] {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+input.form-control {
+	display: block;
+	width: 100%;
+	line-height: 1.25;
+	font-size: 1rem;
+	padding: 0.5rem 0.75rem;   
+	border: 1px solid rgba(0,0,0,.15);
+	border-radius: 0;
+	color: $gray-800;
+	background-color: #ffffff;
+	margin: 0.5rem 0;
+}
+
+/******************************************************************/
+/** BUTTONS *******************************************************/
+/******************************************************************/
+.btn {
+	display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+	line-height: 1.25;
+	border-radius: 0;
+	transition: all .15s ease-in-out;
+	cursor: pointer;
+}
+.btn-primary {
+	color: #fff;
+    background-color: $color-primary;
+    border-color: $color-primary;
+}
+/******************************************************************/
+/** BACKGROUND ****************************************************/
+/******************************************************************/
+.background-primary {
+	background: $color-primary;
+}
+.background-secondary {
+	background: $color-secondary;
+}
+.background-success {
+	background: $color-success;
+}
+.background-danger {
+	background: $color-danger;
+}
+.background-info {
+	background: $color-info;
+}
+.background-warning {
+	background: $color-warning;
+}
+
 
 .message-box {
 	display: block;

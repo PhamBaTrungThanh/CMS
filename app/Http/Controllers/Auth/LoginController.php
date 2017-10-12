@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -36,4 +36,34 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+	public function index()
+	{
+		$continue = (request()->has('continue')) ? request()->input('continue') : session()->get("_previous")['url'];
+		return view('login.index')->withContinue($continue);
+	}
+	public function success()
+	{
+		$continue = request()->input('continue');
+		$agent = new Agent;
+		return view('login.success')->withIsDesktop($agent->isDesktop())->withContinue($continue);
+		
+	}
+	public function redirectToProvider(string $provider)
+	{
+		$continue = request()->input('continue');
+		return Socialite::driver($provider)->with(['state' => json_encode(['continue' => $continue])])->redirect();
+	}
+    public function handleProviderCallback(string $provider)
+    {
+		$state = json_decode(request()->input('state'), true);
+		
+        $social_user = Socialite::driver($provider)->stateless()->user();
+		$user = User::findOrCreate($social_user, $provider);
+		Auth::login($user);
+		
+		return redirect()->intended(route('login.success', ['continue' => $state['continue']]));
+ 
+    }
 }
+
