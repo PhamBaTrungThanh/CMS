@@ -1,5 +1,5 @@
 let mix = require('laravel-mix');
-
+let SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -17,3 +17,14 @@ mix.js('resources/assets/js/app.js', 'public/js')
    mix.browserSync("cms.dev");
    mix.sourceMaps();
    mix.version();
+   mix.webpackConfig({
+    plugins: [
+        new SVGSpritemapPlugin({
+           src: 'resources/assets/svg/*.svg',
+           filename : '/images/sprite.svg',
+           prefix : 'icon-',
+           svgo : {removeTitle : true},
+           svg4everybody: false
+        })
+    ] 
+});

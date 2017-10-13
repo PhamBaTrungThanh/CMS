@@ -150,6 +150,20 @@ input.form-control {
 	background: $color-warning;
 }
 
+svg.icon {
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	line-height: 1em;
+	margin-left: .2em;
+	height: 1em;
+	font-size: 110%;
+}
 
 .message-box {
 	display: block;

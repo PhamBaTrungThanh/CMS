@@ -34,14 +34,60 @@ section[role=sidebar] {
             width: 25px;
             height: 25px;
             position: absolute;
-            top: 50px;
-            right: 25px;
+            top: 55px;
+            right: 30px;
+            font-size: 140%;
             
         }
         div.user {
             padding: 0.5rem 0;
             font-size: 1.2rem;
         }
+    }
+    div[role=section-selection] {
+        div.section {
+            label, a {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                background: darken($gray-600, 20%);
+                padding: 0.5rem 0 0.5rem 1rem;
+                cursor: pointer;    
+                transition: background 0.2s ease;
+                margin: 0;
+                color: inherit;
+                position: relative;
+            }
+            label:hover, a:hover, label.active, a.active {
+                background: darken($gray-700, 5%);
+            }
+            
+            input[type=checkbox].controller {
+                position: absolute;
+                top: -99999px;
+                left: -999999px;
+            }
+            div.controlled {
+                transition:  max-height 0.2s  0.1s;
+                max-height: 0;
+                transform-origin: top center;
+                background: darken($gray-700, 3%);
+                overflow: hidden;
+            }
+            input[type=checkbox].controller:checked ~ div.controlled {
+                 max-height: 5rem;
+            }
+            div.controlled > ul {
+                margin: 0;
+                padding-left: 2rem;
+                list-style: none;
+                li {
+                    display: block;
+                    padding: 0.25rem 0.5rem;
+                }
+            }
+        }
+
     }
 }
 section[role=content] {
@@ -69,5 +115,28 @@ section[role=content] {
     }
     main.content {
         padding: 2rem;
+        min-height: calc(100vh - 3rem);
     }
+}
+section[role=credit] {
+    position: absolute;
+    bottom: 0;
+    left: 250px;
+    right: 0;
+    padding-top: 0.5rem;
+    background: darken($gray-100, 3%);
+    p {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/*****************************************************************************************************/
+/** DASHBOARD ****************************************************************************************/
+/*****************************************************************************************************/
+a.dashboard-card {
+    display: block;
+    margin: 15px 30px 0;
+    padding: 20px 0 20px 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    background: #ffffff;
 }
