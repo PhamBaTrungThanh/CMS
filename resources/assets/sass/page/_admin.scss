@@ -5,10 +5,69 @@ section[role=sidebar] {
     float: left;
     width: 250px;
     min-height: 100vh;
-    background: $gray-800;
+    background: $gray-700;
+    color: $gray-100;
+    header.site-name {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: darken($gray-800, 0%);
+        padding-top: 10px;
+    }
+
+    div[role=userinfo] {
+        padding: 1rem;
+        position: relative;
+        div.avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            
+            img {
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .logout-link {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 50px;
+            right: 25px;
+            
+        }
+        div.user {
+            padding: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+    }
 }
 section[role=content] {
     float: left;
     width: calc(100% - 250px);
     background: $gray-100;
+    header.breadcumb {
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        background: $gray-200;
+        padding-left: 2rem;
+        span.parent {
+            font-size: 1.1rem;
+            color: $gray-600;
+        }
+        span.current {
+            font-size: 1.1rem;
+        }
+        span.parent:after {
+            content: ">";
+            padding: 0 0.3rem 0 0.2rem;
+            font-family: "Roboto Condensed";
+        }
+    }
+    main.content {
+        padding: 2rem;
+    }
 }
