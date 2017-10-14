@@ -26,6 +26,7 @@ Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::as('album.')->prefix('album')->group(function() {
         Route::get('/create', 'AlbumController@create')->name('create');
+        Route::get('/{album}', 'AlbumController@show')->name('show');
         Route::post('', 'AlbumController@store')->name('store');
     });
 });
