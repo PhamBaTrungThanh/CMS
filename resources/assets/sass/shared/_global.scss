@@ -88,23 +88,53 @@ img.fit, svg.fit {
 /******************************************************************/
 /** FORM **********************************************************/
 /******************************************************************/
-label[for] {
-	display: inline-block;
-	margin-bottom: 0.5rem;
-}
-input.form-control {
+.form-unit {
 	display: block;
+	clear: both;
 	width: 100%;
-	line-height: 1.25;
-	font-size: 1rem;
-	padding: 0.5rem 0.75rem;   
-	border: 1px solid rgba(0,0,0,.15);
-	border-radius: 0;
-	color: $gray-800;
-	background-color: #ffffff;
-	margin: 0.5rem 0;
+	margin-bottom: 1.5rem;
+	line-height: 1.5;
+	label[for] {
+		display: inline-block;
+		margin-bottom: 0.5rem;
+	}
+	.form-control {
+		display: block;
+		width: 100%;
+		line-height: 1.25;
+		font-size: 1rem;
+		padding: 0.5rem 0.75rem;   
+		border: 1px solid rgba(0,0,0,.15);
+		border-radius: 0;
+		color: $gray-800;
+		background-color: #ffffff;
+		
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	.form-control:focus {
+		color: #495057;
+		border-color: #80bdff;
+		outline: 0;
+	}
+	input[type=file].form-control {
+		border: none;
+	}
+
 }
 
+.form-unit.label-inline {
+	display: flex;
+	
+	label[for] {
+		display: block;
+		line-height: 1;
+		padding: 10px 20px 0 20px;
+		margin: 0;
+		border: 1px solid rgba(0,0,0,0.15);
+		border-right: none;
+		background: #e9ecef;
+	}
+}
 /******************************************************************/
 /** BUTTONS *******************************************************/
 /******************************************************************/

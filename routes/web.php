@@ -24,4 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('admin')->group( function() {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::as('album.')->prefix('album')->group(function() {
+        Route::get('/create', 'AlbumController@create')->name('create');
+        Route::post('', 'AlbumController@store')->name('store');
+    });
 });

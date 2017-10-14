@@ -39,14 +39,14 @@
                             <span>Dashboard</span></a>
                     </div>
                     <div class="section">
-                        <label for="toggle-albums">
+                        <label for="toggle-albums" class="{{active('admin/album/*')}}">
                             @sprite(icon-albums)
                             <span>Albums</span></label>
-                        <input type="checkbox" id="toggle-albums" class="controller" @if (is_active('albums/*')) checked="checked" @endif>
+                        <input type="checkbox" id="toggle-albums" class="controller" @if (is_active('admin/album/*')) checked="checked" @endif>
                         <div class="controlled">
                             <ul>
-                                <li>Create new Album</li>
-                                <li>Album list</li>
+                                <li><a href="{{ route('admin.album.create') }}" class="{{ active('admin.album.create')}}">Create new Album</a></li>
+                                <li><a href="#" class="{{ active(false)}}">Album list</a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                             @sprite(icon-posts)
                             <span>Posts</span>
                         </label>
-                        <input type="checkbox" id="toggle-posts" class="controller" @if (is_active('posts/*')) checked="checked" @endif>
+                        <input type="checkbox" id="toggle-posts" class="controller" @if (is_active('admin/post/*')) checked="checked" @endif>
                         <div class="controlled">
                             <ul>
                                 <li>Create new Post</li>
@@ -85,6 +85,9 @@
                 </span>
             </header>
             <main class="content">
+                <div role="head">
+                    <h3>@yield('title')</h3>
+                </div>
                 @yield('content')
             </main>
             

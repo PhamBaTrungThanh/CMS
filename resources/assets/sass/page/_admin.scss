@@ -46,7 +46,7 @@ section[role=sidebar] {
     }
     div[role=section-selection] {
         div.section {
-            label, a {
+            & > label, & > a {
                 display: flex;
                 align-items: center;
                 width: 100%;
@@ -58,7 +58,7 @@ section[role=sidebar] {
                 color: inherit;
                 position: relative;
             }
-            label:hover, a:hover, label.active, a.active {
+            & > label:hover, & > a:hover, & > label.active, & > a.active {
                 background: darken($gray-700, 5%);
             }
             
@@ -71,7 +71,7 @@ section[role=sidebar] {
                 transition:  max-height 0.2s  0.1s;
                 max-height: 0;
                 transform-origin: top center;
-                background: darken($gray-700, 3%);
+                
                 overflow: hidden;
             }
             input[type=checkbox].controller:checked ~ div.controlled {
@@ -79,11 +79,20 @@ section[role=sidebar] {
             }
             div.controlled > ul {
                 margin: 0;
-                padding-left: 2rem;
+                padding: 0;
                 list-style: none;
                 li {
                     display: block;
-                    padding: 0.25rem 0.5rem;
+                    padding: 0;
+                    a {
+                        color: inherit;
+                        display: block;
+                        padding: 0.5rem 1rem 0.5rem 2.5rem;
+                        transition: background 0.2s ease;
+                    }
+                    a:hover, a.active {
+                        background: $color-primary;
+                    }
                 }
             }
         }
@@ -116,6 +125,14 @@ section[role=content] {
     main.content {
         padding: 2rem;
         min-height: calc(100vh - 3rem);
+        div[role=head]:after {
+            display: block;
+            content: "";
+            background: $color-secondary;
+            height: 5px;
+            width: 15%;
+            margin-bottom: $spacer;
+        }
     }
 }
 section[role=credit] {
