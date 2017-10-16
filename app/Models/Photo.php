@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Album;
-use Media;
+use App\Models\Album;
+use App\Models\Media;
 
 class Photo extends Model
 {

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-
 use App\Models\Photo;
 use App\Models\Media;
 
@@ -66,10 +65,10 @@ class PhotoController extends Controller
                     'url' => "{$photo->album_id}/{$custom_name}",
                 );
                 $last_unit = $current_unit;
-                array_push($multimedia, $media);
+                $multimedia[] = $media;
             }
         }
-
+        
         $photo->media()->createMany($multimedia);
     }
 }
