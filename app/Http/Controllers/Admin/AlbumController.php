@@ -24,8 +24,10 @@ class AlbumController extends Controller
         return redirect(route('admin.album.show', ["id" => $album->id]));
     }
 
-    public function show(Album $album)
+    public function show(int $album_id)
     {
+        
+        $album = Album::where('id', $album_id)->with('photos')->first();
         return view('admin.album.show')->withAlbum($album);
     }
 }

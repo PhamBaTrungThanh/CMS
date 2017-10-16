@@ -26,7 +26,15 @@ Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::as('album.')->prefix('album')->group(function() {
         Route::get('/create', 'AlbumController@create')->name('create');
-        Route::get('/{album}', 'AlbumController@show')->name('show');
+        Route::get('/{album_id}', 'AlbumController@show')->name('show');
         Route::post('', 'AlbumController@store')->name('store');
     });
+});
+
+
+// Unprotected callback route
+
+Route::prefix('callback')->name('callback.')->group( function() {
+    Route::post('/admin/photo/upload', 'Admin\PhotoController@cloudinaryUploadCallback')->name('cloudinary_serive.upload');
+    Route::post('/admin/photo/transform', 'Admin\PhotoController@cloudinaryTransformCallback')->name('cloudinary_serive.transform');
 });

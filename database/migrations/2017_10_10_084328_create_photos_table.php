@@ -16,7 +16,8 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-			$table->integer('album_id');
+            $table->integer('album_id');
+            $table->string('cloudinary_public_id');
             $table->text('description')->nullable();
             $table->double('ratio', 15, 13);
             $table->json('exif')->nullable();
