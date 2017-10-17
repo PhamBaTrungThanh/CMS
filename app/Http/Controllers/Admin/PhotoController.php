@@ -27,6 +27,23 @@ class PhotoController extends Controller
         } 
 
         $photo->save();
+        
+        $client = new \GuzzleHttp\Client();
+
+        $res = $client->request('GET', $cloudinary_response['url']);
+        
+        $custom_name = str_random(22).".".$cloudinary_response['format'];
+
+        Storage::put("{$photo->album_id}/{$custom_name}", $res->getBody());
+
+        $photo->media()->create([
+            'type' => "original",
+            'width' => $cloudinary_response['width'],
+            'height' => $cloudinary_response['height'],
+            'bytes' => $cloudinary_response['bytes'],
+            'original_url' => $cloudinary_response['url'],
+            'url' => "storage/{$photo->album_id}/{$custom_name}",       
+        ]);
 
     }
     public function cloudinaryTransformCallback(Request $request)
@@ -57,12 +74,12 @@ class PhotoController extends Controller
     
     
                 $media = array(
-                    'format' => 'image',
+                    'type' => ($transform['width'] === $transform['height']) ? 'thumbnail' : 'image',
                     'width' => $transform['width'],
                     'height' => $transform['height'],
                     'bytes' => $transform['bytes'],
                     'original_url' => $transform['url'],
-                    'url' => "{$photo->album_id}/{$custom_name}",
+                    'url' => "storage/{$photo->album_id}/{$custom_name}",
                 );
                 $last_unit = $current_unit;
                 $multimedia[] = $media;

@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('sprite', function($iconname) {
             return "<svg class=\"icon\"><use xlink:href=\"{{ mix('images/sprite.svg') }}#$iconname\" ></use></svg>";
         });
+
     }
 
     /**
@@ -29,3 +30,4 @@ class AppServiceProvider extends ServiceProvider
         
     }
 }
+

@@ -27,7 +27,7 @@ class AlbumController extends Controller
     public function show(int $album_id)
     {
         
-        $album = Album::where('id', $album_id)->with('photos')->first();
+        $album = Album::where('id', $album_id)->with(['photos', 'photos.media'])->first();
         return view('admin.album.show')->withAlbum($album);
     }
 }

@@ -4,6 +4,15 @@
 
 @if (count($album->photos) == 0)
     <p class="text-center">No photo to show</p>
+@else
+    <div class="photos sortable">
+
+    </div>
+    @foreach ($album->photos as $photo)
+    <div class="photo-container">
+        <img srcset="{{$photo->thumbnailSrc}}" width="200" height="200">
+    </div> 
+    @endforeach
 @endif
 <a href="#" id="upload-widget-opener"><h3 class="text-center">Add new Photo</h3></a>
 <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>

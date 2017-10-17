@@ -7,7 +7,7 @@ use App\Models\Photo;
 class Media extends Model
 {
     protected $fillable = [
-        'format', 'width', 'height', 'bytes', 'public_id', 'url', 'original_url',
+        'type', 'width', 'height', 'bytes', 'public_id', 'url', 'original_url',
     ];
     public function photo()
     {

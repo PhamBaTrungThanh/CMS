@@ -16,7 +16,7 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->increments('id');
             $table->string('public_id');
-            $table->string('format');
+            $table->string('type');
             $table->integer('width');
             $table->integer('height');
             $table->bigInteger('bytes');
