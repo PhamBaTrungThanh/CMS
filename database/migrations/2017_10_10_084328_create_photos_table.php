@@ -28,7 +28,8 @@ class CreatePhotosTable extends Migration
             $table->boolean('disable_download')->default(false);
             $table->boolean('disable_comments')->default(false); 
             $table->boolean('hide_exif')->default(false);  
-			$table->integer('order')->default(0);
+            $table->integer('order')->default(0);
+            $table->string('status')->default('created');
             $table->timestamps();
         });
     }

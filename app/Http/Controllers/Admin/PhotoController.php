@@ -21,7 +21,7 @@ class PhotoController extends Controller
         $photo->album_id = $cloudinary_response['context']['custom']['album_id'];
         $photo->ratio = (int) $cloudinary_response['width'] / (int) $cloudinary_response['height'];    
         $photo->order = Photo::where('album_id', $photo->album_id)->count() + 1;
-
+        $photo->status = "transforming";
         if (isset($cloudinary_response['exif'])) {
             $photo->exif = $cloudinary_response['exif'];
         } 
@@ -87,5 +87,16 @@ class PhotoController extends Controller
         }
         
         $photo->media()->createMany($multimedia);
+        $photo->status = "transformed";
+        $photo->save();
+
+        // Callback checking
+        $transformed_photos = Photo::where(['status' => 'transformed', 'album_id' => $photo->album->id])->count();
+        $all_photos = Photo::where(['album_id' => $photo->album->id])->count();
+
+        if ($transformed_photos === $all_photos) {
+            $photo->album->status = "completed";
+            $photo->album->save();
+        }
     }
 }

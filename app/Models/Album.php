@@ -8,7 +8,7 @@ class Album extends Model
 {
     public function photos()
     {
-        return $this->hasMany(Photo::class);
+        return $this->hasMany(Photo::class)->orderBy('order');
     }
     
 }

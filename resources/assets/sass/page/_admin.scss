@@ -1,10 +1,13 @@
 /**
 * global
 */
+#app.admin {
+    display: flex;
+    flex-wrap: wrap;
+}
 section[role=sidebar] {
     float: left;
     width: 250px;
-    min-height: 100vh;
     background: $gray-700;
     color: $gray-100;
     header.site-name {
@@ -136,12 +139,20 @@ section[role=content] {
     }
 }
 section[role=credit] {
-    position: absolute;
-    bottom: 0;
-    left: 250px;
-    right: 0;
     padding-top: 0.5rem;
     background: darken($gray-100, 3%);
+    padding-left: 250px;
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        background: $gray-700;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 250px;
+    }
     p {
         margin-bottom: 0.5rem;
     }

@@ -14,7 +14,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="admin">
         <section role="sidebar">
             <header class="site-name text-center">
                 <span class="h4">{{config('app.name')}}</span>
@@ -92,7 +92,7 @@
             </main>
             
         </section>
-        <section role="credit">
+        <section role="credit" class="full-width">
             <footer>
                 <p class="text-center">
                     {{config('app.name')}} © 2017 by Trung Thành
@@ -106,5 +106,6 @@
     <!-- Scripts -->
 
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/admin.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+.photo-container {
+    margin-bottom: $spacer;
+}
+.delete-photo {
+    position: absolute;
+    top: -999999px;
+    left: -999999px;
+}
+.photo-container.sortable-ghost {
+    background: #ffffff;
+    cursor: pointer;
+    & > img {
+        visibility: hidden;
+    }
+
+    &:before {
+        border: 3px dashed $color-primary;
+        display: block;
+        content: "";
+        width: 200px;
+        height: 200px;
+        position: absolute;
+    }
+}
