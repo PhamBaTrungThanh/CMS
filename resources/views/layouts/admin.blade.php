@@ -46,7 +46,7 @@
                         <div class="controlled">
                             <ul>
                                 <li><a href="{{ route('admin.album.create') }}" class="{{ active('admin.album.create')}}">Create new Album</a></li>
-                                <li><a href="#" class="{{ active(false)}}">Album list</a></li>
+                                <li><a href="{{ route('admin.album.index') }}" class="{{ active('admin.album.index')}}">Album list</a></li>
                             </ul>
                         </div>
                     </div>

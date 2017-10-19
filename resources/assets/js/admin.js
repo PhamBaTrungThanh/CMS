@@ -1,9 +1,27 @@
-Sortable = require('sortablejs');
+'use strict';
 
-window.addEventListener('load', function() {
+const Sortable = require('sortablejs');
+
+
+/**
+ * Methods
+ */
+
+window.admin_photoDeletable = (deletable) => {
+    document.querySelectorAll("input.delete-photo").forEach((item) => {
+        (deletable) ? item.removeAttribute('disabled') : item.setAttribute('disabled', 'disabled');
+    });
+}
+var cmsEvent = new Event('CMS_load');
+
+window.addEventListener('CMS_load', function() {
     // Sortable register
 
     document.querySelectorAll("[sortable=true]").forEach(function(element) {
+        let original_list = {};
+        element.querySelectorAll('.photo-container').forEach((item, index) => {
+            original_list[item.dataset.photoId] = index + 1;
+        });
         let sort = new Sortable(element, {
             draggable: element.dataset.draggable,
             onEnd(event) {
@@ -12,10 +30,14 @@ window.addEventListener('load', function() {
                     list[item.dataset.photoId] = index + 1;
                 });
                 document.querySelectorAll(event.target.dataset.sortedField).forEach((item) => {
-                    item.value = JSON.stringify(list);
+                    item.value = JSON.stringify([list, original_list]);
                 })
             }
         })
     }, this);
 
 });
+
+window.addEventListener('load', () => {
+    window.dispatchEvent(cmsEvent);
+})

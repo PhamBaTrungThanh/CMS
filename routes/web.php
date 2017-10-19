@@ -28,6 +28,7 @@ Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('
         Route::get('/create', 'AlbumController@create')->name('create');
         Route::get('/{album_id}', 'AlbumController@show')->name('show');
         Route::get('/{album}/add', 'AlbumController@add')->name('add');
+        Route::get("", 'AlbumController@index')->name('index');
         
         Route::post('{album}', 'AlbumController@update')->name('update');
         Route::post('', 'AlbumController@store')->name('store');

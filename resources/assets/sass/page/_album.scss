@@ -1,24 +1,93 @@
-.photo-container {
-    margin-bottom: $spacer;
-}
-.delete-photo {
-    position: absolute;
-    top: -999999px;
-    left: -999999px;
-}
-.photo-container.sortable-ghost {
-    background: #ffffff;
-    cursor: pointer;
-    & > img {
-        visibility: hidden;
+div#album-singular {
+    .controls {
+        input[type=radio] {
+            visibility: hidden;
+        }
+        label {
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+            margin: 0 -10px;
+            position: relative;
+        }
+        input[type=radio]:checked + label {
+            background: $color-success;
+            color: #ffffff;
+        }
+        label:before {
+            display: block;
+            position: absolute;
+            background: $color-secondary;
+            content: "";
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+
+        }
+        input[type=radio]:not(:checked) + label:hover:before {
+            transform: scaleX(1);
+        }
+    }
+    .photo-container {
+        margin-bottom: $spacer;
+        position: relative;
+        .delete-photo {
+            position: absolute;
+            z-index: 0;
+            visibility: hidden;
+        }
+        .photo-content {
+            margin-bottom: 0;
+        }
+        .delete-photo:disabled + .photo-content {
+            cursor: move;
+        }
+        .delete-photo:not(:disabled) + .photo-content {
+            cursor: pointer;
+            position: relative;
+            img {
+                position: relative;
+                z-index: 999;
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: $color-danger;
+                display: block;
+                content: "";
+                z-index: 99;
+                transition: transform 0.15s ease 0s;
+            }
+        }
+        .delete-photo:checked + .photo-content {
+            &:before {
+                transform: scale(1.05);
+            }
+        }
+        
     }
 
-    &:before {
-        border: 3px dashed $color-primary;
-        display: block;
-        content: "";
-        width: 200px;
-        height: 200px;
-        position: absolute;
+    .photo-container.sortable-ghost {
+        background: #ffffff;
+        cursor: pointer;
+        & > .photo-content > img {
+            visibility: hidden;
+        }
+
+        &:before {
+            border: 3px dashed $color-primary;
+            display: block;
+            content: "";
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
     }
 }

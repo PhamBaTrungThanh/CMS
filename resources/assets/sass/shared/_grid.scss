@@ -22,6 +22,7 @@
     flex-wrap: wrap;
     margin-right: ($spacer / -2);
     margin-left:  ($spacer / -2);
+    margin-bottom: $spacer;
 }
 .row.vertical-aligns {
     align-items: center;

@@ -27,7 +27,7 @@ class PhotoController extends Controller
         } 
 
         $photo->save();
-        
+        $photo->album()->update(['status' => 'proccessing']);        
         $client = new \GuzzleHttp\Client();
 
         $res = $client->request('GET', $cloudinary_response['url']);
