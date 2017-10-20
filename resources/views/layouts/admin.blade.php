@@ -39,10 +39,10 @@
                             <span>Dashboard</span></a>
                     </div>
                     <div class="section">
-                        <label for="toggle-albums" class="{{active('admin/album/*')}}">
+                        <label for="toggle-albums" class="{{active('admin/album*')}}">
                             @sprite(icon-albums)
                             <span>Albums</span></label>
-                        <input type="checkbox" id="toggle-albums" class="controller" @if (is_active('admin/album/*')) checked="checked" @endif>
+                        <input type="checkbox" id="toggle-albums" class="controller" @if (is_active('admin/album*')) checked="checked" @endif>
                         <div class="controlled">
                             <ul>
                                 <li><a href="{{ route('admin.album.create') }}" class="{{ active('admin.album.create')}}">Create new Album</a></li>

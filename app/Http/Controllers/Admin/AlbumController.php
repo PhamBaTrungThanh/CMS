@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Album;
 
@@ -30,6 +31,7 @@ class AlbumController extends Controller
         $album->name = $request->input('name');
         $album->slug = str_slug($request->input('name'));
         $album->description = $request->input('description');
+        $album->cover = $request->file('cover')->store('album_covers');
         $album->save();
         session()->flash('message_type', 'success');
         session()->flash('message', 'New album created');
@@ -69,6 +71,15 @@ class AlbumController extends Controller
             }
             session()->flash('message_type', 'success');
             session()->flash('message', 'Photos deleted.');            
+        }
+        if ($request->input('job') === "delete_album")
+        {
+            Storage::delete($album->cover);
+            foreach($album->photos as $photo) {
+                event(new RequestDeletePhoto($photo));
+            }
+            $album->delete();
+            return redirect(route('admin.album.index'));
         }
         return redirect(route('admin.album.show', $album));
     }

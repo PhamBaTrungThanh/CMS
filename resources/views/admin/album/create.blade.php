@@ -2,7 +2,7 @@
 @section('title', 'Create new Album')
 @section('content')
     <div class="container-fluid">
-        <form method="post" action="{{ route('admin.album.store') }}">
+        <form method="post" action="{{ route('admin.album.store') }}" enctype="multipart/form-data" >
             <div class="row">
                 <div class="col">
                     <div class="form-unit">

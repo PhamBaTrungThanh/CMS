@@ -1,4 +1,10 @@
 div#album-singular {
+    form.delete-album {
+        position: absolute;
+        top: 82px;
+        right: 30px;
+    }
+
     .controls {
         input[type=radio] {
             visibility: hidden;
@@ -88,6 +94,28 @@ div#album-singular {
             width: 200px;
             height: 200px;
             position: absolute;
+        }
+    }
+}
+
+
+
+
+
+
+
+#album_list {
+    .album-container {
+        .album-content {
+            img {
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+            }
+            .album-meta {
+                text-align: center;
+                padding: 1rem 0 0.5rem;
+            }
         }
     }
 }

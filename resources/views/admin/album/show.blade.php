@@ -2,6 +2,11 @@
 @section('title', $album->name)
 @section('content')
 <div id="album-singular">
+    <form  method="post" class="delete-album">
+        {{ csrf_field() }}
+        <input type="hidden" name="job" value="delete_album">
+        <input type="submit" value="Delete this Album">
+    </form>
     @if (count($album->photos) == 0)
         <p class="text-center">No photo to show</p>
     @else

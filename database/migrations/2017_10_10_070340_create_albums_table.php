@@ -20,7 +20,8 @@ class CreateAlbumsTable extends Migration
 			$table->string('description')->nullable();
             $table->bigInteger('views_count')->default(0);
 			$table->bigInteger('likes_count')->default(0);
-			$table->bigInteger('shares_count')->default(0);
+            $table->bigInteger('shares_count')->default(0);
+            $table->string('cover')->default(0);
             $table->timestamps();
             $table->string('status')->default('finished');
         });
