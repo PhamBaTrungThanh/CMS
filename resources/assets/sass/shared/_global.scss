@@ -6,7 +6,9 @@ ul.no-style {
 /**************************/
 /** TYPOGRAPHY ************/
 /**************************/
-
+.heading {
+	font-family: $headings-font-family;
+}
 .text-left {
     text-align: left;
 }

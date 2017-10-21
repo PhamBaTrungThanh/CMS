@@ -1,0 +1,109 @@
+body#frontend {
+    section#sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100px;
+        background-color: #161616;
+        background-image: repeating-linear-gradient(to bottom, rgb(0,0,0) 0%, rgb(44,44,44) 100%);
+        color: $gray-100;
+        margin: 0;
+        .logo {
+            margin: 20px 10px;
+            svg {
+                fill: #ffffff;
+                stroke: #ffffff;
+                width: 60px;
+                height: 60px;
+                margin: 0;
+                
+            }
+        }
+        .page-name {
+            display: none;
+            text-transform: uppercase;
+            text-align: center;
+            word-spacing: 100vw;
+            font-size: 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .logo:hover + .page-name {
+            max-height: 200px;
+        }
+        nav#sidebar-menu {
+            ul {
+                li {
+                    text-align: center;
+                    padding: 0.2rem 0;
+                    position: relative;
+                    a {
+                        color: $gray-100;
+                        text-transform: uppercase;
+                        @extend .heading;
+                        font-size: 0.8rem;
+                    }
+                }
+                li:before {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: -$spacer/2;
+                    width: 3px;
+                    background: transparent;
+                    transition: background 0.2s ease;
+                }
+                li:hover:before {
+                    background: $brand-color;
+                }
+            }
+        }
+        div.facebook-contact {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 0;
+            left: 0;
+            a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 999;
+                background: $brand-color;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                color: $gray-700;
+                text-transform: uppercase;
+                font-weight: 400;
+                padding: $spacer $spacer/2;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+                span {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            img {
+                position: relative;
+                width: 100px;
+                height: 100px;
+            }
+        }
+        div.facebook-contact:hover {
+            a {
+                opacity: 1;
+            }
+        }
+    }
+    section#content {
+        margin-left: 100px;
+        background: #cdcdcd;
+    }
+}

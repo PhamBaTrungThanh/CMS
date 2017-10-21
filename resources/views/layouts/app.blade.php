@@ -13,9 +13,45 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body id="frontend">
     <div id="app">
-        @yield('content')
+        <section id="sidebar" class="row vertical-direction">
+            <div class="logo col fixed">
+                @sprite(icon-logo)
+            </div>
+            <nav id="sidebar-menu" class="col fixed">
+                <ul class="no-style">
+                    <li>
+                        <a href="{{route('frontend.index')}}">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Random</a>
+                    </li>
+                    <li>
+                        <a href="#">About me</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="page-name heading">
+                {{config('app.name')}}
+            </p>
+            <div class="stats col fixed">
+
+            </div>
+            <div class="facebook-contact">
+                <a href="https://www.facebook.com/pg/mazui.photography/" target="_blank">
+                    <span>Facebook</span> <span>Page</span>
+                </a>
+                <img src="http://graph.facebook.com/101037680514721/picture?width=200&type=square" alt="">
+            </div>
+        </section>
+        <section id="content">
+            <nav id="top-menu"></nav>
+        </section>
     </div>
 
     <!-- Scripts -->

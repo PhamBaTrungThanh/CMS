@@ -36,7 +36,9 @@ Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('
     });
 });
 
-
+Route::namespace('Frontend')->as('frontend.')->group(function() {
+    Route::get('', 'HomeController@index')->name('index');
+});
 // Unprotected callback route
 
 Route::prefix('callback')->name('callback.')->group( function() {

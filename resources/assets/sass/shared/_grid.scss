@@ -16,7 +16,9 @@
     padding-right: ($spacer / 2);
     padding-left: ($spacer / 2);
 }
-
+.row.vertical-direction {
+    flex-direction: column;
+}
 .row {
     display: flex;
     flex-wrap: wrap;
