@@ -38,6 +38,7 @@ Route::namespace('Admin')->as('admin.')->middleware(['auth', 'admin'])->prefix('
 
 Route::namespace('Frontend')->as('frontend.')->group(function() {
     Route::get('', 'HomeController@index')->name('index');
+    Route::get('/album/{album_slug}', 'AlbumController@show')->name('album.show');
 });
 // Unprotected callback route
 

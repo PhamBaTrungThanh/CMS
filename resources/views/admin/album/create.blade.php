@@ -14,10 +14,18 @@
                         <textarea name="description" id="description" class="form-control" rows="5"></textarea>
                     </div>
                     <div class="form-unit">
+                        <label for="shot_at">Shot at</label>
+                        <input type="date" name="shot_at" id="shot_at" class="form-control" />
+                    </div>
+                    <div class="form-unit">
                         <button type="submit">Create new album</button>
                     </div>
                 </div>
                 <div class="col">
+                    <div class="form-unit">
+                        <label for="tags">Tags</label>
+                        <input type="text" name="tags" id="tags" class="form-control" placehoder="Tags">
+                    </div>
                     <div class="form-unit">
                         <label for="cover">Album cover</label>
                         <input type="file" name="cover" id="cover" class="form-control">

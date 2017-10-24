@@ -17,7 +17,7 @@
     <div id="app" class="admin">
         <section role="sidebar">
             <header class="site-name text-center">
-                <span class="h4">{{config('app.name')}}</span>
+               <span class="h4"> <a href="{{ route('frontend.index') }}">{{config('app.name')}}</a></span>
             </header>
             <main>
                 <div role="userinfo">

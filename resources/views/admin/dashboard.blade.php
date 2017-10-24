@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <a href="#" class="z-depth-1 text-center dashboard-card">
+            <a href="{{ route('admin.album.create') }}" class="z-depth-1 text-center dashboard-card">
                 <span class="display-3 large-icon">
                     @sprite(icon-albums-color)
                 </span>

@@ -14,7 +14,7 @@ class AlbumController extends Controller
 {
     public function index()
     {
-        $albums = Album::all();
+        $albums = Album::orderBy('created_at', 'desc')->get();
         return view('admin.album.index')->withAlbums($albums);
     }
     public function create()

@@ -1,6 +1,18 @@
-@extends('layouts.app')
-@section('title', 'Đăng nhập')
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Đăng nhập - {{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+<body id="login">
 <div class="wrapper viewport login-container login-background">
 	
 	<div class="row full-height align-center justify-center">
@@ -40,5 +52,7 @@
 
 		</div>
 	</div>
-</div>
-@endsection
+</div>	
+
+</body>
+</html>

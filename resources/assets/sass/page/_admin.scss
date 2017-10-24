@@ -17,6 +17,9 @@ section[role=sidebar] {
         justify-content: center;
         background: darken($gray-800, 0%);
         padding-top: 10px;
+        a, a:hover {
+            color: $color-light;
+        }
     }
 
     div[role=userinfo] {

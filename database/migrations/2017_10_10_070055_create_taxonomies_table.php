@@ -15,9 +15,7 @@ class CreateTaxonomiesTable extends Migration
     {
         Schema::create('taxonomies', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('name');
-			$table->string('slug');
-			$table->string('type');
+            $table->integer('tag_id');
 			$table->string('taxable_type');
 			$table->integer('taxable_id');
             $table->timestamps();

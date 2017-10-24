@@ -18,9 +18,10 @@ class CreateAlbumsTable extends Migration
 			$table->string('name');
 			$table->string('slug');
 			$table->string('description')->nullable();
-            $table->bigInteger('views_count')->default(0);
-			$table->bigInteger('likes_count')->default(0);
-            $table->bigInteger('shares_count')->default(0);
+            $table->bigInteger('view_count')->default(0);
+			$table->bigInteger('like_count')->default(0);
+            $table->bigInteger('share_count')->default(0);
+            $table->date('shot_at');
             $table->string('cover')->default(0);
             $table->timestamps();
             $table->string('status')->default('finished');

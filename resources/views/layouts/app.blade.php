@@ -15,7 +15,7 @@
 </head>
 <body id="frontend">
     <div id="app">
-        <section id="sidebar" class="row vertical-direction">
+        <section id="sidebar" class="row vertical-direction hide-on-portrait">
             <div class="logo col fixed">
                 @sprite(icon-logo)
             </div>
@@ -39,18 +39,24 @@
             <p class="page-name heading">
                 {{config('app.name')}}
             </p>
-            <div class="stats col fixed">
+            <div class="stats col">
 
             </div>
-            <div class="facebook-contact">
+            <div class="col fixed" id="loading-indicator">
+                loading
+            </div>
+            <div class="facebook-contact col fixed">
                 <a href="https://www.facebook.com/pg/mazui.photography/" target="_blank">
-                    <span>Facebook</span> <span>Page</span>
+                    <span class="h6">Facebook</span>
                 </a>
                 <img src="http://graph.facebook.com/101037680514721/picture?width=200&type=square" alt="">
             </div>
         </section>
         <section id="content">
             <nav id="top-menu"></nav>
+            <main>
+                @yield('content')
+            </main>
         </section>
     </div>
 
