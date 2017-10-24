@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Album;
 
 use App\Events\RequestDeletePhoto;
-
+use App\Events\TaggingContent;
 class AlbumController extends Controller
 {
     public function index()
@@ -32,7 +32,13 @@ class AlbumController extends Controller
         $album->slug = str_slug($request->input('name'));
         $album->description = $request->input('description');
         $album->cover = $request->file('cover')->store('album_covers');
+        $album->shot_at = $request->input('shot_at');
         $album->save();
+
+        /* tags */
+        if ($request->filled('tags')) {
+            event(new TaggingContent(Album::class, $album->id, explode(",", $request->input('tags'))));
+        }   
         session()->flash('message_type', 'success');
         session()->flash('message', 'New album created');
         return redirect(route('admin.album.show', ["id" => $album->id]));

@@ -24,7 +24,7 @@
                 <div class="col">
                     <div class="form-unit">
                         <label for="tags">Tags</label>
-                        <input type="text" name="tags" id="tags" class="form-control" placehoder="Tags">
+                        <input type="tags" name="tags" id="tags" class="form-control" placehoder="Tags">
                     </div>
                     <div class="form-unit">
                         <label for="cover">Album cover</label>
@@ -46,6 +46,6 @@
                 }
             })(file);
             reader.readAsDataURL(file);
-        }, false);
+        }, false);        
     </script>
 @endsection

@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\RequestDeletePhoto' => [
             'App\Listeners\EventDeletePhoto',
+        ],
+        'App\Events\TaggingContent' => [
+            'App\Listeners\TagContent',
         ]
     ];
 

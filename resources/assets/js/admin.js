@@ -1,7 +1,7 @@
 'use strict';
 
 const Sortable = require('sortablejs');
-
+const tagsInput = require('tags-input');
 
 /**
  * Methods
@@ -35,6 +35,10 @@ window.addEventListener('CMS_load', function() {
             }
         })
     }, this);
+
+    document.querySelectorAll('input[type=tags]').forEach( element => {
+        tagsInput(element);
+    });
 
 });
 
