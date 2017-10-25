@@ -37,7 +37,7 @@ class AlbumController extends Controller
 
         /* tags */
         if ($request->filled('tags')) {
-            event(new TaggingContent(Album::class, $album->id, explode(",", $request->input('tags'))));
+            event(new TaggingContent(Album::class, $album->id, $request->input('tags')));
         }   
         session()->flash('message_type', 'success');
         session()->flash('message', 'New album created');

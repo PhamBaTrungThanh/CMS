@@ -19,11 +19,11 @@ class TaggingContent
      *
      * @return void
      */
-    public function __construct(String $model, int $id, array $tags)
+    public function __construct(String $model, int $content_id, string $tags)
     {
         $this->model = $model;
         $this->tags = $tags;
-        $this->id = $id;
+        $this->content_id = $content_id;
     }
 
     /**

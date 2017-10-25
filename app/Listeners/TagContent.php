@@ -28,7 +28,9 @@ class TagContent
      */
     public function handle(TaggingContent $event)
     {
-        $tags = collect($event->tags)->map(function($tag) {
+        $tags = collect(explode(",", trim($event->tags)))->reject(function($tag) {
+            return ($tag == null);
+        })->map(function($tag) {
             return ['slug' => str_slug($tag), 'name' => title_case($tag)];
         });
 
@@ -40,12 +42,14 @@ class TagContent
 
         $unique_tags = $tags->whereNotIn('slug', $tag_models->pluck('slug'));
         // create new models with those tag
-        $new_ids = Tag::create($unique_tags)->pluck('id');
-
-        $mer = $ids->merge($new_ids)->map( function($id) {
-            return ['tag_id' => $id, 'taxable_type' => $event->model, 'taxable_id' => $event->id];
+        //$new_ids = Tag::create($unique_tags->toArray())->pluck('id');
+        $new_ids = $unique_tags->map(function($tag) {
+            return Tag::create($tag)->pluck('id');
         });
-
+        $mer = $ids->merge($new_ids)->map(function($id) {
+            return ['tag_id' => $id, 'taxable_type' => $event->model, 'taxable_id' => $event->content_id];
+        });
+        $mer->dd();
         DB::table('taxomonies')->insert($mer);
     }
 }
