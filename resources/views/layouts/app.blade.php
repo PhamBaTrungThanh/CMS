@@ -53,10 +53,7 @@
             </div>
         </section>
         <section id="content">
-            <nav id="top-menu"></nav>
-            <main>
-                @yield('content')
-            </main>
+            @yield('content')
         </section>
     </div>
 

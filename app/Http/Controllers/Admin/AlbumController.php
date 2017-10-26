@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Album;
+use App\Models\Tag;
 
 use App\Events\RequestDeletePhoto;
 use App\Events\TaggingContent;
@@ -15,6 +16,7 @@ class AlbumController extends Controller
     public function index()
     {
         $albums = Album::orderBy('created_at', 'desc')->get();
+
         return view('admin.album.index')->withAlbums($albums);
     }
     public function create()
@@ -84,6 +86,7 @@ class AlbumController extends Controller
             foreach($album->photos as $photo) {
                 event(new RequestDeletePhoto($photo));
             }
+            $album->tags()->detach();
             $album->delete();
             return redirect(route('admin.album.index'));
         }

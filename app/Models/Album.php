@@ -16,6 +16,6 @@ class Album extends Model
     }
     public function tags()
     {
-        return $this->morphToMany(Tag::class, 'taxonomies');
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }

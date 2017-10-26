@@ -47,17 +47,21 @@ class TagContent
         //$new_ids = Tag::create($unique_tags->toArray())->pluck('id');
         $new_ids = [];
         foreach ($unique_tags as $tag) {
-            $new_ids = Tag::create($tag)->pluck('id');
+            $new_tag = new Tag;
+            $new_tag->name = $tag['name'];
+            $new_tag->slug = $tag['slug'];
+            $new_tag->save();
+            $new_ids[] = $new_tag->id;
         }
-
+        
         $mer = $ids->merge($new_ids);
         
         $taxonomies = [];
 
         foreach ($mer as $id) {
-            $taxonomies[] = ['tag_id' => $id, 'taxable_type' => $event->model, 'taxable_id' => $event->content_id];
+            $taxonomies[] = ['tag_id' => $id, 'taggable_type' => $event->model, 'taggable_id' => $event->content_id];
         }
 
-        DB::table('taxonomies')->insert($taxonomies);
+        DB::table('taggables')->insert($taxonomies);
     }
 }
