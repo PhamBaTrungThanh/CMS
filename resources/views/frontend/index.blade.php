@@ -14,6 +14,8 @@
                 @include('includes.album_bits')
             @endforeach
         </div>     
+
+        {{ $albums->links() }}
     </div>
 </main>
 @endsection

@@ -57,7 +57,7 @@ body#frontend {
                     position: absolute;
                     top: 0;
                     bottom: 0;
-                    left: -$spacer/2;
+                    left: 0;
                     width: 3px;
                     background: transparent;
                     transition: background 0.2s ease;
@@ -170,38 +170,6 @@ body#frontend {
                 min-height: 500px;
                 position: relative;
                 display: block;
-                overflow: hidden;
-                & > .blurred-background {
-                    width: 100%;
-                    height: 100%;
-                    background-size: cover;
-                    background-position: center center;
-                    position: absolute;
-                    filter: blur(5px);
-                    top: -7px;
-                    left: -7px;
-                    right: -7px;
-                    bottom: -7px;
-                }
-                & > .background {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    clip: rect(0px,0,500px,0px);
-                }
-                & > .extra-info {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    height: 100px;
-                    overflow: hidden;
-                }
-                & > .extra-info > .content {
-                    position: relative;
-                    z-index: 999;
-                }
             }
 
             .album-bits:not(.latest) > img {
@@ -210,6 +178,48 @@ body#frontend {
             }
             .album-bits:not(.latest):hover > img {
                 filter: none;
+            }
+            & > .extra-info {
+                width: 100%;
+                height: 80px;
+                background: #000000;
+                font-family: $headings-font-family;
+                padding: 0 15%;
+                color: $gray-100;
+                margin-bottom: 0;
+                
+            }
+            & > .extra-info > .content {
+                    & > .tags {
+                        font-size: 0.9rem;
+                        padding: 10px 0;
+                    }
+                    & > .stats {
+                        padding: 0.7rem 2rem;
+                        & > .count {
+                            margin-bottom: 0;
+                        }
+                        & > span {
+                            text-transform: uppercase;
+                            font-size: 0.75rem;
+                        }
+                    }
+                    & > .goto-album {
+                        padding: 0 0 0 4rem;
+                        margin-top: calc(48px - 1.25rem);
+                        & > a {
+                            color: $gray-100;
+                            border: $gray-100 2px solid;
+                            text-transform: uppercase;
+                            padding: 0.5rem 1.5rem;
+                            background: transparent;
+                            transition: color 0.2s ease 0s, background 0.2s ease 0s;
+                        }
+                        & > a:hover {
+                            background: $gray-100;
+                            color: $gray-800;
+                        }
+                    }
             }
         }
     }

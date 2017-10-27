@@ -10,6 +10,9 @@ class Album extends Model
     protected $fillable = [
         'status',
     ];
+    protected $casts = [
+        'shot_at' => 'datetime',
+    ];
     public function photos()
     {
         return $this->hasMany(Photo::class)->orderBy('order');

@@ -212,6 +212,37 @@ img.fit, svg.fit {
     border-color: $color-primary;
 }
 /******************************************************************/
+/** PAGINATION ****************************************************/
+/******************************************************************/
+ul.pagination {
+	list-style: none;
+	padding: $spacer 0;
+	margin:  0;
+	text-align: center;
+
+	& > li {
+		display: inline-block;
+
+		& > span, & > a {
+			padding: 3px 10px 4px;
+			background: $gray-100;
+			border: $gray-700 1px solid;
+			color: $gray-700;
+			transition: background 0.2s ease 0s;
+		}	
+	}
+	& > li.disabled > * {
+		background: $gray-400;
+	}
+	& > li.active > * {
+		border-color: $brand-color;
+	}	
+	& > li:not(.disabled):not(.active):hover > * {
+		background: $brand-color;
+	}
+}
+
+/******************************************************************/
 /** BACKGROUND ****************************************************/
 /******************************************************************/
 .background-primary {
